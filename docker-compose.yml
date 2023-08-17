@@ -6,4 +6,12 @@ services:
     build: .
     ports:
       - 50051:50051
-    
+  
+  air:
+    image: cosmtrek/air
+    container_name: donna-md-service-air
+    working_dir: /app
+    # ports:
+      # - 50051:50051
+    volumes:
+      - ./:/app

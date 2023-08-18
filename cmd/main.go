@@ -11,6 +11,7 @@ import (
 	"github.com/devigor/donna-markdown-service/contracts"
 	"github.com/golang/protobuf/ptypes/timestamp"
 	"github.com/google/uuid"
+	"github.com/joho/godotenv"
 	"google.golang.org/grpc"
 )
 
@@ -47,6 +48,11 @@ func (s *server) GetAll(ctx context.Context, request *contracts.Empty) (*contrac
 var port = flag.Int("port", 50051, "The server port")
 
 func main() {
+	errEnv := godotenv.Load()
+	if errEnv != nil {
+		log.Fatal("Error loading .env file")
+	}
+
 	flag.Parse()
 	listen, err := net.Listen("tcp", fmt.Sprintf(":%d", *port))
 	if err != nil {

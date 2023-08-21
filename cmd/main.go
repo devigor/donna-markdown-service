@@ -6,10 +6,13 @@ import (
 	"log"
 	"net"
 
+	contracts "github.com/devigor/donna-markdown-service/internal/protos"
 	"google.golang.org/grpc"
 )
 
-type server struct{}
+type server struct {
+	contracts.UnimplementedNotesServer
+}
 
 var port = flag.Int("port", 50051, "The server port")
 
@@ -21,6 +24,8 @@ func main() {
 	}
 
 	s := grpc.NewServer()
+	contracts.RegisterNotesServer(s, &server{})
+
 	log.Printf("server listening at %v", listen.Addr())
 	if err := s.Serve(listen); err != nil {
 		log.Fatalf("failed to serve: %v", err)

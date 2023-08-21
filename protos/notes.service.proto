@@ -1,16 +1,16 @@
 syntax = "proto3";
-option go_package = "../contracts";
+option go_package = "../internal/contracts";
 
 import "google/protobuf/timestamp.proto";
 import "google/protobuf/empty.proto";
 
-package markdownService;
+package notesService;
 
-service Markdown {
+service Notes {
   rpc GetAll(Empty) returns (GetAllResponse);
 }
 
-message MarkdownBody {
+message NotesBody {
   string id = 1;
   string content = 2;
   google.protobuf.Timestamp created_at = 3;
@@ -22,5 +22,5 @@ message Empty {
 }
 
 message GetAllResponse {
-  repeated MarkdownBody items = 1;
+  repeated NotesBody items = 1;
 }

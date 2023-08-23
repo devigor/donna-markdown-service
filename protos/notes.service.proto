@@ -6,8 +6,9 @@ import "google/protobuf/empty.proto";
 
 package notesService;
 
-service Notes {
+service NotesService {
   rpc GetAll(Empty) returns (GetAllResponse);
+  rpc CreateNote(CreateNoteRequest) returns (Empty);
 }
 
 message NotesBody {
@@ -23,4 +24,8 @@ message Empty {
 
 message GetAllResponse {
   repeated NotesBody items = 1;
+}
+
+message CreateNoteRequest {
+  string content = 1;
 }

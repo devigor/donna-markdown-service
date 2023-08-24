@@ -9,7 +9,7 @@ package notesService;
 service NotesService {
   rpc GetAll(Empty) returns (GetAllResponse);
   rpc CreateNote(CreateNoteRequest) returns (Empty);
-  rpc DeleteNote(DeleteNoteRequest) returns (Empty);
+  rpc UpdateNote(UpdateNoteRequest) returns (Empty);
 }
 
 message NotesBody {
@@ -27,7 +27,7 @@ message GetAllResponse {
   repeated NotesBody items = 1;
 }
 
-message DeleteNoteRequest {
+message UpdateNoteRequest {
   string id = 1;
   string content = 2;
 }

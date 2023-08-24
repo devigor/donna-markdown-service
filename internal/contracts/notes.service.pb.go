@@ -187,7 +187,7 @@ func (x *GetAllResponse) GetItems() []*NotesBody {
 	return nil
 }
 
-type DeleteNoteRequest struct {
+type UpdateNoteRequest struct {
 	state         protoimpl.MessageState
 	sizeCache     protoimpl.SizeCache
 	unknownFields protoimpl.UnknownFields
@@ -196,8 +196,8 @@ type DeleteNoteRequest struct {
 	Content string `protobuf:"bytes,2,opt,name=content,proto3" json:"content,omitempty"`
 }
 
-func (x *DeleteNoteRequest) Reset() {
-	*x = DeleteNoteRequest{}
+func (x *UpdateNoteRequest) Reset() {
+	*x = UpdateNoteRequest{}
 	if protoimpl.UnsafeEnabled {
 		mi := &file_protos_notes_service_proto_msgTypes[3]
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -205,13 +205,13 @@ func (x *DeleteNoteRequest) Reset() {
 	}
 }
 
-func (x *DeleteNoteRequest) String() string {
+func (x *UpdateNoteRequest) String() string {
 	return protoimpl.X.MessageStringOf(x)
 }
 
-func (*DeleteNoteRequest) ProtoMessage() {}
+func (*UpdateNoteRequest) ProtoMessage() {}
 
-func (x *DeleteNoteRequest) ProtoReflect() protoreflect.Message {
+func (x *UpdateNoteRequest) ProtoReflect() protoreflect.Message {
 	mi := &file_protos_notes_service_proto_msgTypes[3]
 	if protoimpl.UnsafeEnabled && x != nil {
 		ms := protoimpl.X.MessageStateOf(protoimpl.Pointer(x))
@@ -223,19 +223,19 @@ func (x *DeleteNoteRequest) ProtoReflect() protoreflect.Message {
 	return mi.MessageOf(x)
 }
 
-// Deprecated: Use DeleteNoteRequest.ProtoReflect.Descriptor instead.
-func (*DeleteNoteRequest) Descriptor() ([]byte, []int) {
+// Deprecated: Use UpdateNoteRequest.ProtoReflect.Descriptor instead.
+func (*UpdateNoteRequest) Descriptor() ([]byte, []int) {
 	return file_protos_notes_service_proto_rawDescGZIP(), []int{3}
 }
 
-func (x *DeleteNoteRequest) GetId() string {
+func (x *UpdateNoteRequest) GetId() string {
 	if x != nil {
 		return x.Id
 	}
 	return ""
 }
 
-func (x *DeleteNoteRequest) GetContent() string {
+func (x *UpdateNoteRequest) GetContent() string {
 	if x != nil {
 		return x.Content
 	}
@@ -317,7 +317,7 @@ var file_protos_notes_service_proto_rawDesc = []byte{
 	0x2d, 0x0a, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x18, 0x01, 0x20, 0x03, 0x28, 0x0b, 0x32, 0x17,
 	0x2e, 0x6e, 0x6f, 0x74, 0x65, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x4e, 0x6f,
 	0x74, 0x65, 0x73, 0x42, 0x6f, 0x64, 0x79, 0x52, 0x05, 0x69, 0x74, 0x65, 0x6d, 0x73, 0x22, 0x3d,
-	0x0a, 0x11, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75,
+	0x0a, 0x11, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75,
 	0x65, 0x73, 0x74, 0x12, 0x0e, 0x0a, 0x02, 0x69, 0x64, 0x18, 0x01, 0x20, 0x01, 0x28, 0x09, 0x52,
 	0x02, 0x69, 0x64, 0x12, 0x18, 0x0a, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x18, 0x02,
 	0x20, 0x01, 0x28, 0x09, 0x52, 0x07, 0x63, 0x6f, 0x6e, 0x74, 0x65, 0x6e, 0x74, 0x22, 0x2d, 0x0a,
@@ -333,8 +333,8 @@ var file_protos_notes_service_proto_rawDesc = []byte{
 	0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x43, 0x72, 0x65, 0x61, 0x74, 0x65, 0x4e, 0x6f,
 	0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e, 0x6e, 0x6f, 0x74, 0x65,
 	0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x45, 0x6d, 0x70, 0x74, 0x79, 0x12, 0x42,
-	0x0a, 0x0a, 0x44, 0x65, 0x6c, 0x65, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x65, 0x12, 0x1f, 0x2e, 0x6e,
-	0x6f, 0x74, 0x65, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x44, 0x65, 0x6c, 0x65,
+	0x0a, 0x0a, 0x55, 0x70, 0x64, 0x61, 0x74, 0x65, 0x4e, 0x6f, 0x74, 0x65, 0x12, 0x1f, 0x2e, 0x6e,
+	0x6f, 0x74, 0x65, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x55, 0x70, 0x64, 0x61,
 	0x74, 0x65, 0x4e, 0x6f, 0x74, 0x65, 0x52, 0x65, 0x71, 0x75, 0x65, 0x73, 0x74, 0x1a, 0x13, 0x2e,
 	0x6e, 0x6f, 0x74, 0x65, 0x73, 0x53, 0x65, 0x72, 0x76, 0x69, 0x63, 0x65, 0x2e, 0x45, 0x6d, 0x70,
 	0x74, 0x79, 0x42, 0x17, 0x5a, 0x15, 0x2e, 0x2e, 0x2f, 0x69, 0x6e, 0x74, 0x65, 0x72, 0x6e, 0x61,
@@ -359,7 +359,7 @@ var file_protos_notes_service_proto_goTypes = []interface{}{
 	(*NotesBody)(nil),             // 0: notesService.NotesBody
 	(*Empty)(nil),                 // 1: notesService.Empty
 	(*GetAllResponse)(nil),        // 2: notesService.GetAllResponse
-	(*DeleteNoteRequest)(nil),     // 3: notesService.DeleteNoteRequest
+	(*UpdateNoteRequest)(nil),     // 3: notesService.UpdateNoteRequest
 	(*CreateNoteRequest)(nil),     // 4: notesService.CreateNoteRequest
 	(*timestamppb.Timestamp)(nil), // 5: google.protobuf.Timestamp
 	(*emptypb.Empty)(nil),         // 6: google.protobuf.Empty
@@ -371,10 +371,10 @@ var file_protos_notes_service_proto_depIdxs = []int32{
 	0, // 3: notesService.GetAllResponse.items:type_name -> notesService.NotesBody
 	1, // 4: notesService.NotesService.GetAll:input_type -> notesService.Empty
 	4, // 5: notesService.NotesService.CreateNote:input_type -> notesService.CreateNoteRequest
-	3, // 6: notesService.NotesService.DeleteNote:input_type -> notesService.DeleteNoteRequest
+	3, // 6: notesService.NotesService.UpdateNote:input_type -> notesService.UpdateNoteRequest
 	2, // 7: notesService.NotesService.GetAll:output_type -> notesService.GetAllResponse
 	1, // 8: notesService.NotesService.CreateNote:output_type -> notesService.Empty
-	1, // 9: notesService.NotesService.DeleteNote:output_type -> notesService.Empty
+	1, // 9: notesService.NotesService.UpdateNote:output_type -> notesService.Empty
 	7, // [7:10] is the sub-list for method output_type
 	4, // [4:7] is the sub-list for method input_type
 	4, // [4:4] is the sub-list for extension type_name
@@ -425,7 +425,7 @@ func file_protos_notes_service_proto_init() {
 			}
 		}
 		file_protos_notes_service_proto_msgTypes[3].Exporter = func(v interface{}, i int) interface{} {
-			switch v := v.(*DeleteNoteRequest); i {
+			switch v := v.(*UpdateNoteRequest); i {
 			case 0:
 				return &v.state
 			case 1:

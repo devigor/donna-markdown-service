@@ -29,7 +29,7 @@ func (s *notesServiceServer) CreateNote(ctx context.Context, request *notes.Crea
 	return &notes.Empty{}, error
 }
 
-func (s *notesServiceServer) DeleteNote(ctx context.Context, request *notes.DeleteNoteRequest) (*notes.Empty, error) {
+func (s *notesServiceServer) UpdateNote(ctx context.Context, request *notes.UpdateNoteRequest) (*notes.Empty, error) {
 	error := repository.Update(request.Id, request.Content)
 
 	return &notes.Empty{}, error

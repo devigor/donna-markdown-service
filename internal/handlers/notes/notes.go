@@ -38,3 +38,9 @@ func (s *notesServiceServer) DeleteNote(ctx context.Context, request *notes.Dele
 
 	return &notes.Empty{}, error
 }
+
+func (s *notesServiceServer) FindNoteById(ctx context.Context, request *notes.FindNoteByIdRequest) (*notes.FindNoteByIdResponse, error) {
+	data, error := repository.FindById(request.Id)
+
+	return &notes.FindNoteByIdResponse{Note: data}, error
+}

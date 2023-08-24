@@ -2,7 +2,6 @@ package repository
 
 import (
 	"context"
-	"fmt"
 	"log"
 	"time"
 
@@ -40,8 +39,6 @@ func Select() ([]*contracts.NotesBody, error) {
 		noteStruct.UpdatedAt = timestamppb.New(updatedAt)
 
 		results = append(results, &noteStruct)
-		fmt.Println(results)
-
 	}
 
 	return results, nil
@@ -98,4 +95,33 @@ func Delete(id string) error {
 	}
 
 	return error
+}
+
+func FindById(id string) (*contracts.NotesBody, error) {
+	db, err := database.OpenConn()
+	if err != nil {
+		log.Fatalln("Error to connect database\n%r", err)
+	}
+	defer db.Close(context.Background())
+
+	rows, error := db.Query(context.Background(),
+		"SELECT id, content, created_at, updated_at FROM donna_notes dn WHERE dn.id = $1", id)
+
+	defer rows.Close()
+
+	var results *contracts.NotesBody
+
+	for rows.Next() {
+		var noteStruct contracts.NotesBody
+		var createdAt, updatedAt time.Time
+		if err := rows.Scan(&noteStruct.Id, &noteStruct.Content, &createdAt, &updatedAt); err != nil {
+			log.Fatalln(err)
+		}
+
+		noteStruct.CreatedAt = timestamppb.New(createdAt) // Converta para timestamppb.Timestamp
+		noteStruct.UpdatedAt = timestamppb.New(updatedAt)
+
+		results = &noteStruct
+	}
+	return results, error
 }

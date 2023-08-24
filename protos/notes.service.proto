@@ -11,6 +11,7 @@ service NotesService {
   rpc CreateNote(CreateNoteRequest) returns (Empty);
   rpc UpdateNote(UpdateNoteRequest) returns (Empty);
   rpc DeleteNote(DeleteNoteRequest) returns (Empty);
+  rpc FindNoteById(FindNoteByIdRequest) returns (FindNoteByIdResponse);
 }
 
 message NotesBody {
@@ -39,4 +40,12 @@ message DeleteNoteRequest {
 
 message CreateNoteRequest {
   string content = 1;
+}
+
+message FindNoteByIdRequest {
+  string id = 1;
+}
+
+message FindNoteByIdResponse {
+  NotesBody note = 1;
 }

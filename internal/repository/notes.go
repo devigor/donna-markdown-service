@@ -65,3 +65,20 @@ func Create(content string) error {
 	defer db.Close(context.Background())
 	return error
 }
+
+func Update(id string, content string) error {
+	db, err := database.OpenConn()
+	if err != nil {
+		log.Fatalln("Error to connect database\n%r", err)
+	}
+	defer db.Close(context.Background())
+
+	row, error := db.Exec(context.Background(),
+		"UPDATE donna_notes AS dn SET content = $1 WHERE dn.id = $2", content, id)
+
+	if row.RowsAffected() == 0 {
+		log.Fatalln("Error to update the value")
+	}
+
+	return error
+}

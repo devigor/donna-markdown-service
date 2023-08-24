@@ -9,6 +9,7 @@ package notesService;
 service NotesService {
   rpc GetAll(Empty) returns (GetAllResponse);
   rpc CreateNote(CreateNoteRequest) returns (Empty);
+  rpc DeleteNote(DeleteNoteRequest) returns (Empty);
 }
 
 message NotesBody {
@@ -24,6 +25,11 @@ message Empty {
 
 message GetAllResponse {
   repeated NotesBody items = 1;
+}
+
+message DeleteNoteRequest {
+  string id = 1;
+  string content = 2;
 }
 
 message CreateNoteRequest {

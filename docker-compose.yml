@@ -5,12 +5,12 @@ services:
     image: cockroachdb/cockroach:v21.1.16
     restart: always
     container_name: donna-md-service-db
-    command: start-single-node --insecure --listen-addr=localhost
+    command: start-single-node --insecure
     ports:
       - 26257:26257
       - 8080:8080
     networks:
-      - db_net
+      - my_network
 
   app:
     container_name: donna-md-service
@@ -22,7 +22,7 @@ services:
     volumes:
       - ./.env:/.env
     networks:
-      - db_net
+      - my_network
   
   air:
     image: cosmtrek/air
@@ -33,8 +33,7 @@ services:
     volumes:
       - ./:/app
     networks:
-      - db_net
+      - my_network
 
 networks:
-  db_net:
-    driver: bridge
+  my_network:

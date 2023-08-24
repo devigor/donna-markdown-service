@@ -10,6 +10,7 @@ service NotesService {
   rpc GetAll(Empty) returns (GetAllResponse);
   rpc CreateNote(CreateNoteRequest) returns (Empty);
   rpc UpdateNote(UpdateNoteRequest) returns (Empty);
+  rpc DeleteNote(DeleteNoteRequest) returns (Empty);
 }
 
 message NotesBody {
@@ -30,6 +31,10 @@ message GetAllResponse {
 message UpdateNoteRequest {
   string id = 1;
   string content = 2;
+}
+
+message DeleteNoteRequest {
+  string id = 1;
 }
 
 message CreateNoteRequest {

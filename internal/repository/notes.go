@@ -82,3 +82,20 @@ func Update(id string, content string) error {
 
 	return error
 }
+
+func Delete(id string) error {
+	db, err := database.OpenConn()
+	if err != nil {
+		log.Fatalln("Error to connect database\n%r", err)
+	}
+	defer db.Close(context.Background())
+
+	row, error := db.Exec(context.Background(),
+		"DELETE FROM donna_notes AS dn WHERE dn.id = $1", id)
+
+	if row.RowsAffected() == 0 {
+		log.Fatalln("Error to delete the value", error)
+	}
+
+	return error
+}

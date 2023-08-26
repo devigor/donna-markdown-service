@@ -1,4 +1,4 @@
-module github.com/devigor/donna-markdown-service
+module github.com/devigor/donna-notes-service
 
 go 1.20
 

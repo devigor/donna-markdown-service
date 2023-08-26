@@ -5,7 +5,7 @@ import (
 	"fmt"
 	"os"
 
-	"github.com/devigor/donna-markdown-service/internal/config/env"
+	"github.com/devigor/donna-notes-service/internal/config/env"
 	"github.com/jackc/pgx/v5"
 )
 

@@ -6,8 +6,8 @@ import (
 	"log"
 	"net"
 
-	contracts "github.com/devigor/donna-markdown-service/internal/contracts"
-	"github.com/devigor/donna-markdown-service/internal/handlers/notes"
+	contracts "github.com/devigor/donna-notes-service/internal/contracts"
+	"github.com/devigor/donna-notes-service/internal/handlers/notes"
 	"google.golang.org/grpc"
 )
 

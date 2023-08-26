@@ -5,8 +5,8 @@ import (
 	"log"
 	"time"
 
-	database "github.com/devigor/donna-markdown-service/internal/config/db"
-	"github.com/devigor/donna-markdown-service/internal/contracts"
+	database "github.com/devigor/donna-notes-service/internal/config/db"
+	"github.com/devigor/donna-notes-service/internal/contracts"
 	"github.com/google/uuid"
 	"google.golang.org/protobuf/types/known/timestamppb"
 )

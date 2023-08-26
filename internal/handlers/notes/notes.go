@@ -3,8 +3,8 @@ package notes
 import (
 	"context"
 
-	notes "github.com/devigor/donna-markdown-service/internal/contracts"
-	"github.com/devigor/donna-markdown-service/internal/repository"
+	notes "github.com/devigor/donna-notes-service/internal/contracts"
+	"github.com/devigor/donna-notes-service/internal/repository"
 )
 
 type notesServiceServer struct {
